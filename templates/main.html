@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Time Website Builder Tool</title>
+</head>
+<body>
+<h1>Smart Time Website Builder Tool</h1>
+<form action="/generate_schedule" method="POST">
+<label for="tasks">Tasks:</label>
+<input type="text" id="tasks" name="tasks">
+<br>
+<label for="time_slots">Time Slots:</label>
+<input type="text" id="time_slots" name="time_slots">
+<br>
+<input type="submit" value="Generate Schedule">
+</form>
+<br>
+{% if schedule %}
+<h2>Generated Schedule:</h2>
+<ul>
+{% for task in schedule.tasks %}
+<li>{{ task }}</li>
+{% endfor %}
+</ul>
+<ul>
+{% for time_slot in schedule.time_slots %}
+<li>{{ time_slot }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+</body>
+</html>
+
